@@ -1,0 +1,28 @@
+<template name="info">
+  <h3>Score Board</h3>
+    <form class="addname">
+      <input type="text" name="title" placeholder="Player Name" required>
+      <input type="text" name="score" placeholder="Score" required>
+      <input type="submit" name="submitbutton" value="Add your highscore">
+    </form>
+  <ul>
+    <li>
+      {{#each nameAndScores}}
+        <li>{{username}} - - - {{score}}</li>
+      {{/each}}
+    </li>
+  </ul>
+</template>
+
+<template name="databaseRemove">
+  <button id="button-remove">
+    remove ALL of the scores
+  </button>
+</template>
+<!--
+<template name="serverPrint">
+  <button id="idk">
+    Print a test line
+  </button>
+</template>
+-->

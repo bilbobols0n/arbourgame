@@ -1,0 +1,54 @@
+<template name="combolockRules">
+    <!--using this for logins also-->
+    <div class="login">
+        {{> loginButtons align="left"}}
+    </div>
+    <h2>Welcome to ComboLock</h2>
+    <p>Where you try to guess the lock combination</p>
+    <div class='rules'>
+        <p>Rules: With a cooldown of 60 seconds, the 'LOCK' field will allow any user to<br /> </p>
+        <p>enter a 6-digit combination. It is the goal of subsequent players <br /></p>
+        <p>to try to guess numbers as close to this combination as possible</p>
+        <br />
+    </div>
+    
+    <style>
+        div.rules {
+            line-height: 0.5;
+        }
+        div.login {
+            line-height: 3;
+        }
+    </style>
+</template>
+
+<template name="combolockInput">
+    {{#if currentUser}}
+        <p>Welcome, {{currentUser.username}}</p>
+        {{#if displayComboAllowed}}
+            <form class="setlock">
+                <p>You get to set the next lock!</p>
+                <input type="text" name="setlockinput" placeholder="combination" maxlength="6">
+            </form>
+        {{else}}
+            <h3>A new combination can be set in: {{combinationTimerDisplay}}. </h3>
+            <!--show confirmation to the user who entered the lock number-->
+            {{#if confirmationAllowed}}
+                <p>You set the lock to: {{lockConfirmationDisplay}}</p>
+            {{/if}}
+        {{/if}}
+    {{else}}
+        <p>You need to log in to play this game.</p>
+    {{/if}}
+
+    <br />
+
+    <form class="guesslock">
+        <p>Input your guess:</p>
+        <input type="text" name="playerGuess" placeholder="your guess" maxlength="6">
+    </form>
+</template>
+
+<template name="combolockState">
+    <p>victory/failure message will go here</p>
+</template>
