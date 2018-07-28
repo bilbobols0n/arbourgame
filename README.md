@@ -1,2 +1,0 @@
-# arbourgame
-code guessing game
